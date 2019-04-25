@@ -36,13 +36,13 @@ class Menu extends CI_Controller {
 
   }
 
-  // Roles
-  // public function addrole()
-  // {
-  //   $this->form_validation->set_rules('role', 'role', 'required|trim', [
-  //     'required' => 'This role has not been input!'
-  //   ]);
-  // }
+  Roles
+  public function addrole()
+  {
+    $this->form_validation->set_rules('role', 'role', 'required|trim', [
+      'required' => 'This role has not been input!'
+    ]);
+  }
 
   // Menu
   public function delMenu($id)
