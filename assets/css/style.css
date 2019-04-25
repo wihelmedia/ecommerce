@@ -1,0 +1,9 @@
+.alert {
+    opacity: 0;
+    transform: translate(0, -40px);
+    transition: .5s;
+}
+.alert.show {
+    opacity: 1;
+    transform: translate(0, 0);
+}
