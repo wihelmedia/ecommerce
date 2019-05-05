@@ -25,7 +25,7 @@
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                    <form action="<?= base_url('admin/addrole'); ?>" method="post">
+                    <form action="<?= base_url('admin/role'); ?>" method="post">
                       <div class="modal-body">
                         <div class="form-group">
                           <input type="text" class="form-control" id="role" name="role" placeholder="Role name">
@@ -52,15 +52,18 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <?php $i = 1; ?>
                     <?php foreach ($role as $r): ?>
                       <tr>
-                        <td><?= $r['id']; ?></td>
+                        <td><?= $i; ?></td>
                         <td><?= $r['role']; ?></td>
                         <td>
+                          <a href="<?= base_url('admin/roleaccess/') . $r['id']; ?>" class="badge badge-warning">Access</a>
                           <a href="" class="badge badge-success">Edit</a>
                           <a href="" class="badge badge-danger">Delete</a>
                         </td>
                       </tr>
+                      <?php $i++; ?>
                     <?php endforeach; ?>
                   </tbody>
                 </table>

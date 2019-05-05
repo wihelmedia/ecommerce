@@ -25,7 +25,7 @@
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                    <form action="<?= base_url('menu'); ?>" method="post">
+                    <form action="<?= base_url('menu'); ?>" method="post" id="form">
                       <div class="modal-body">
                         <div class="form-group">
                           <input type="text" class="form-control" id="menu" name="menu" placeholder="Menu name">
@@ -33,7 +33,7 @@
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">X</button>
-                        <button type="submit" class="btn btn-primary" id="added">Add</button>
+                        <button type="submit" class="btn btn-primary" id="add">Add</button>
                       </div>
                     </form>
                   </div>
@@ -52,15 +52,18 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <?php $i = 1; ?>
                     <?php foreach ($menu as $uMenu): ?>
                       <tr>
-                        <td><?= $uMenu['id']; ?></td>
+                        <td><?= $i; ?></td>
                         <td><?= $uMenu['menu']; ?></td>
                         <td>
+                          <input type="hidden" name="" value="<?= base_url(); ?>" id="hiddenbaseurl">
                           <a href="" class="badge badge-success edit" data-toggle="modal" data-target="#addm" data-id="<?= $uMenu['id']; ?>">Edit</a>
                           <a href="<?= base_url(); ?>menu/delMenu/<?= $uMenu['id']; ?>" class="badge badge-danger">Delete</a>
                         </td>
                       </tr>
+                      <?php $i++; ?>
                     <?php endforeach; ?>
                   </tbody>
                 </table>

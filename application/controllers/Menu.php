@@ -36,13 +36,13 @@ class Menu extends CI_Controller {
 
   }
 
-  Roles
-  public function addrole()
-  {
-    $this->form_validation->set_rules('role', 'role', 'required|trim', [
-      'required' => 'This role has not been input!'
-    ]);
-  }
+  // Roles
+  // public function addrole()
+  // {
+  //   $this->form_validation->set_rules('role', 'role', 'required|trim', [
+  //     'required' => 'This role has not been input!'
+  //   ]);
+  // }
 
   // Menu
   public function delMenu($id)
@@ -129,8 +129,8 @@ class Menu extends CI_Controller {
   public function updateMenu($id)
   {
     if ($this->input->method() == "post") {
-      $update = $this->menu->upMenu(array(
-        'menu' => htmlspecialchars($this->input->post('menu')),
+      $update = $this->menu->upmenu(array(
+        'menu' => htmlspecialchars($this->input->post('menu'))
       ), $id);
       if ($update) {
         $this->session->set_flashdata('msg', '<div class="alert alert-success col-sm-6 mx-auto" role="alert">Success update menu!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');

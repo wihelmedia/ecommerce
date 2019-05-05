@@ -1,5 +1,7 @@
 <?php
+use GuzzleHttp\Client;
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 class Menu_model extends CI_Model
 {
   public function __construct()
@@ -47,15 +49,10 @@ class Menu_model extends CI_Model
     return $this->db->update('user_sub_menu', $data);
   }
 
-  public function upMenu($data = array(), $id)
+  public function upmenu($data = array(), $id)
   {
     $this->db->where('id', $id);
     return $this->db->update('user_menu', $data);
-  }
-
-  public function getRole()
-  {
-    return $this->db->get('user_role')->result_array();
   }
 
   public function delmenu($id)
