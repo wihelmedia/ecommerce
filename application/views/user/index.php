@@ -8,7 +8,6 @@
               <li class="breadcrumb-item active" aria-current="page"><?= ucwords($this->uri->segment(2)); ?></li>
             </ol>
           </nav>
-          <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
           <?= $this->session->userdata('msg'); ?>
           <div class="card mb-3" style="max-width: 540px;">
             <div class="row no-gutters">

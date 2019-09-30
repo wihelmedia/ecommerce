@@ -16,7 +16,7 @@ $('.nav-link').click(function() {
     allMenu();
     return;
   }
-  $('h1').html(kategori);
+  $('h2').html(kategori);
 
   $.getJSON('data/pizza.json', function(data) {
       let menu = data.menu;

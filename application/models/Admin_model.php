@@ -9,9 +9,24 @@ class Admin_model extends CI_Model
     parent::__construct();
   }
 
-  public function getUsers()
+  public function getUsers($limit, $start)
   {
-    return $this->db->get('user')->result_array();
+    return $this->db->get('user', $limit, $start)->result_array();
+  }
+
+  public function getpesan()
+  {
+    return $this->db->get('rt')->result_array();
+  }
+
+  public function totpesan()
+  {
+    return $this->db->get('rt')->num_rows();
+  }
+
+  public function usershow($id)
+  {
+    return $this->db->get_where('user', ['id' => $id])->result_array();
   }
 
   public function getUserById($id)
@@ -24,9 +39,9 @@ class Admin_model extends CI_Model
     return $this->db->get('user_role')->result_array();
   }
 
-  public function getRoleAccess($role_id)
+  public function getRoleAccess($id)
   {
-    return $this->db->get_where('user_role', ['id' => $role_id])->row_array();
+    return $this->db->get_where('user_role', ['id' => $id])->row_array();
   }
 
   public function getMenu()

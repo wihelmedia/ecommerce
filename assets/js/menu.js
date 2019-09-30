@@ -26,4 +26,8 @@ $(window).ready(function () {
       $('#form').attr('action', baseUrl + 'menu/updateMenu/' + id);
     });
   });
+
+  $('.menu').on('click', function () {
+    alert('Sure your will delete this menu??');
+  });
 });

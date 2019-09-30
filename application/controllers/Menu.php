@@ -7,6 +7,7 @@ class Menu extends CI_Controller {
   {
     parent::__construct();
     is_logged_in();
+    $this->load->library('pagination');
     $this->load->model('Menu_model', 'menu');
   }
 
@@ -16,9 +17,15 @@ class Menu extends CI_Controller {
       'required' => 'This menu has not been input!'
     ]);
 
+    $config['base_url'] = base_url('menu/index');
+    $config['total_rows'] = $this->db->count_all('user_menu');
+    $config['per_page'] = 3;
+    $config['num_links'] = 5;
+    $this->pagination->initialize($config);
+    $data['start'] = $this->uri->segment(3);
     $data['title'] = 'Menu Management';
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-    $data['menu'] = $this->menu->getUserMenu();
+    $data['menu'] = $this->menu->get_all_peoples($config['per_page'], $data['start']);
 
     if ($this->form_validation->run() == false) {
       $this->load->view('templates/header', $data);
@@ -61,10 +68,15 @@ class Menu extends CI_Controller {
     $this->form_validation->set_rules('menu_id', 'menu_id', 'required|trim');
     $this->form_validation->set_rules('url', 'url', 'required|trim');
     $this->form_validation->set_rules('icon', 'icon', 'required|trim');
-
+    $config['base_url'] = base_url('menu/submenu');
+    $config['total_rows'] = $this->db->count_all('user_sub_menu');
+    $config['per_page'] = 10;
+    $config['num_links'] = 5;
+    $this->pagination->initialize($config);
+    $data['start'] = $this->uri->segment(3);
     $data['title'] = 'Submenu Management';
     $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-    $data['subMenu'] = $this->menu->getSubMenu();
+    $data['subMenu'] = $this->menu->getSubMenu($config['per_page'], $data['start']);
     $data['menu'] = $this->menu->getUserMenu();
     if ($this->form_validation->run() == false) {
       $this->load->view('templates/header', $data);

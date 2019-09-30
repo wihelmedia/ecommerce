@@ -36,7 +36,7 @@
                     <input type="password" class="form-control form-control-user" id="password2" name="password2" placeholder="Repeat Password">
                   </div>
                 </div>
-                <button type="submit" class="btn btn-primary btn-user btn-block">
+                <button type="submit" class="btn btn-warning btn-user btn-block">
                   Register Account
                 </button>
                 <!-- <hr>
@@ -48,9 +48,6 @@
                 </a> -->
               </form>
               <hr>
-              <div class="text-center">
-                <a class="small" href="forgot-password.html">Forgot Password?</a>
-              </div>
               <div class="text-center">
                 <a class="small" href="<?= base_url('auth'); ?>">Already have an account? Login!</a>
               </div>

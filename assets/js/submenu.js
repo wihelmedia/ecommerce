@@ -32,7 +32,7 @@ $(window).ready(function() {
       $('#form').attr('action', baseUrl + 'menu/updateSubMenu/' + id);
     });
   });
-  $('.badge-danger').on('click', function () {
+  $('.submenu').on('click', function () {
     alert('Sure your will delete this submenu??');
   });
 });

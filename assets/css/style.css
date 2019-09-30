@@ -7,3 +7,6 @@
     opacity: 1;
     transform: translate(0, 0);
 }
+a {
+  text-decoration: none !important;
+}
